@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    {% endblock %}
+
+    <title>{% block title %}Clelia CARNIEL{% endblock %}</title>
+</head>
+
+<body>
+    <div class="container">
+        	{% set currentPage = app.request.get('_route') %}
+
+		    {% include "partials/_nav.html.twig" %}
+
+            {% block body %}
+        <main class="main-details">
+            <section class="picture">
+            </section>
+            <section class="detail">
+                <div class="laius">
+                    <h2>Bienvenue sur mon Blog!</h2>
+                    <p>Hello! Moi c'est Clelia développeuse Backend, avec une spécialisation sur le framework Symfony. <br>
+                    Je partage ici mes travaux. <br>
+                    N'hésitez pas à laisser vos commentaires sur d'eventuelles améliorations ! <br> <br>
+                    Bonne visite !
+                    </p>
+                </div>
+            </section>
+        </main>
+        {% endblock %}
+
+        {% block footer %}
+        <footer class="the-end">
+            <div class="social-media">
+                <ul class="global">
+                    <li class="twitter"><a href="https://twitter.com/Clay8882" target="_blank">Twitter</a></li>
+                    <li class="github"><a href="https://github.com/Clay8288" target="_blank">GitHub</a></li>
+                    <li class="linke"><a href="https://fr.linkedin.com/in/clelia-c-b2a54331?trk=people-guest_people_search-card" target="_blank">Linkedin</a></li>
+                </ul>
+            </div>
+        </footer>
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+ <main class="contact-details">
+        <div class="contact">
+
+        {{ form_start(form,{'attr': {'class': 'form-item'}}) }}
+
+            <h2>Me contacter</h1>
+                    
+                {{ form_row(form.fullName, {'attr': {'class': 'name'}}) }}
+
+                {{ form_row(form.email, {'attr': {'class': 'email'}}) }}
+
+
+                {{ form_row(form.message, {'attr': {'class': 'message'}}) }}
+
+            <div class="form">
+                <input type="submit" value="Envoyer">
+            </div>
+
+            {{ form_end(form) }}
+    </div>
+    
+</main>
+
+{% endblock %}
