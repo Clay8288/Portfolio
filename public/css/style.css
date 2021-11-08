@@ -35,11 +35,13 @@ body::-webkit-scrollbar {
     font-size: 6em;
     background-color: white;
     display: flex;
-    justify-content: space-around;
+    position: relative;
 }
 
 .voila {
-    margin: 90px 20px 0 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .nav-bar {
@@ -95,7 +97,7 @@ body::-webkit-scrollbar {
     display: flex;
     width: 40vw;
     justify-content: center;
-    background-image: url(/images/moi.jpg);
+    background-image: url(../images/moi.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     filter: opacity(0.4);
@@ -196,15 +198,15 @@ body::-webkit-scrollbar {
 }
 
 .twitter a:hover {
-    background-image: url(/images/twitter.svg);
+    background-image: url(../images/twitter.svg);
 }
 
 .github a:hover {
-    background-image: url(/images/github.svg);
+    background-image: url(../images/github.svg);
 }
 
 .linke a:hover {
-    background-image: url(/images/linkedin.svg);
+    background-image: url(../images/linkedin.svg);
 }
 
 /******** XP *******/
@@ -269,12 +271,32 @@ body::-webkit-scrollbar {
     margin-left: 20px;
     font-size: 1.5em;
 }
+.scroll-el {
+    height: 90%;
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+}
+
+.scroll-el::-webkit-scrollbar{
+    width: 12px;
+}
+
+.scroll-el::-webkit-scrollbar-track {
+    background: black;
+}
+
+.scroll-el::-webkit-scrollbar-thumb{
+  background-color: darksalmon; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid black; /* creates padding around scroll thumb */
+}
 
 .projects {
     display: flex;
     width: 100%;
     height: max-content;
-    margin: 10px 0;
+    margin: 30px 0;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -330,6 +352,9 @@ body::-webkit-scrollbar {
 .school {
     margin: 0 100px;
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .school h3 {
@@ -399,11 +424,107 @@ body::-webkit-scrollbar {
 }
 
 
+.submit{
+    background-color: #e9967a;
+    border: 0.1em solid #ec967a;
+    width: 100px;
+    height: 33px;
+    border-radius: 5px;
+}
+
+
+/********* LOADING *********/
+.ring
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150px;
+  height:150px;
+  background:transparent;
+  border:3px solid #3c3c3c;
+  border-radius:50%;
+  text-align:center;
+  line-height:150px;
+  font-family:sans-serif;
+  font-size:20px;
+  color:#e9967a;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-shadow:0 0 10px #e9967a;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+.ring:before
+{
+  content:'';
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid #e9967a;
+  border-right:3px solid #e9967a;
+  border-radius:50%;
+  animation:animateC 5s linear infinite;
+}
+.ring span
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 5s linear infinite;
+}
+.ring span:before
+{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#e9967a;
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px #e9967a;
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
+}
+
+
+
+
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     /* Styles pour cette Media Queries */
 
     .voila {
-        margin: 40px 20px 0 0;
+        margin-bottom: 20px;
     }
 
     .main-head{
@@ -445,6 +566,10 @@ body::-webkit-scrollbar {
 
     .all-skills img {
         max-width: 30px;
+    }
+    
+    .xps{
+        height: 60%;
     }
 
     .formations {
@@ -530,5 +655,6 @@ body::-webkit-scrollbar {
     .school li{
         white-space: inherit;
     }
+
 
 }

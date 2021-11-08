@@ -18,9 +18,14 @@
             </div>
             <div class="xps">
                 <h2>Expériences</h2>
+                <div class="scroll-el">
+                {% for project in projects %}
                 <div class="projects">
-                    <h3>Projet O'Backpack</h3>
-                    <p>Réalisation d'un site dédié pour les personnes qui voyagent en sac à dos. Ce site a pour but de regrouper en un seul endroit les informations destinations, le partage de bons plans: restaurants, hôtels, treks...ainsi leur retour d'experiences.<a href="https://www.youtube.com/watch?v=1qlGlKTmlxk&t=2632s" target="_blank">Projet</a></p>
+                    <h3>{{ project.name }}</h3>
+                    <p>{{ project.description|nl2br }}</p>
+                    <p><a href="{{ project.link }}" target="_blank">Projet</a></p>
+                </div>
+                {% endfor %}
                 </div>
             </div>
             <div class="formations">
